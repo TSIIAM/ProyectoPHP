@@ -7,7 +7,7 @@
 # Server OS:                    Win32
 # Target compatibility:         ANSI SQL
 # HeidiSQL version:             4.0
-# Date/time:                    2017-09-26 21:25:29
+# Date/time:                    2017-09-27 18:46:13
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ANSI,NO_BACKSLASH_ESCAPES';*/
@@ -31,7 +31,7 @@ CREATE TABLE /*!32312 IF NOT EXISTS*/ "categoria" (
   "idC" int(11) NOT NULL AUTO_INCREMENT,
   "nombre" varchar(60) NOT NULL,
   PRIMARY KEY ("idC")
-) AUTO_INCREMENT=9;
+) AUTO_INCREMENT=10;
 
 
 
@@ -57,6 +57,8 @@ REPLACE INTO "categoria" ("idC", "nombre") VALUES
 	(7,'Mochila');
 REPLACE INTO "categoria" ("idC", "nombre") VALUES
 	(8,'Cinturon');
+REPLACE INTO "categoria" ("idC", "nombre") VALUES
+	(9,'Bateria');
 /*!40000 ALTER TABLE "categoria" ENABLE KEYS;*/
 UNLOCK TABLES;
 
@@ -75,7 +77,7 @@ CREATE TABLE /*!32312 IF NOT EXISTS*/ "productos" (
   PRIMARY KEY ("idP","categoria"),
   KEY "FOREIGN" ("categoria"),
   CONSTRAINT "FK_categoria" FOREIGN KEY ("categoria") REFERENCES "categoria" ("idC")
-) AUTO_INCREMENT=13;
+) AUTO_INCREMENT=22;
 
 
 
@@ -108,7 +110,23 @@ REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "ca
 REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
 	(11,'Xuminga','bolso','china',100,6);
 REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
-	(12,'Xuminga','bolso','china',100,6);
+	(12,'Mahjong','Bolso de Carga','china',80,6);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(13,'Machgulg','Tripode alto.','alemania',55,4);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(14,'Cachilu','Flash economico','china',170,1);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(15,'Shumager','Cinturon multiples bolsillos','alemania',80,8);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(16,' Obscure','Filtro de luz.','usa',55,5);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(17,'LowImpact','Cinturon fijo','usa',55,8);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(18,'MaxCharge','Bateria recargable.','usa',150,9);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(19,'Karcher','Bateria doble.','alemania',165,9);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(20,'Kioko','Mochila pequeña','empty',65,7);
 /*!40000 ALTER TABLE "productos" ENABLE KEYS;*/
 UNLOCK TABLES;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE;*/

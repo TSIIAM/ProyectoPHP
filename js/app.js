@@ -10,7 +10,7 @@ function main() {
 //funcion para realizar verificacion de los formularios
 function verify() {
     //verifica en que pagina se encuentra, dependiendo de la pagina, su respectiva verificacion
-    alert("test");
+
 
 
     $("#altaProductoBoton").on("click", verificarAltaProducto);
@@ -36,6 +36,11 @@ function validarVacio() {
     }
     return resultado;
 }
+
+function SetPage(url) {
+    // redirigir a la url especificada
+    window.location = url;
+} // end function
 
 //verificacion del alta de producto.
 function verificarAltaProducto() {
@@ -90,8 +95,8 @@ function verificarAltaCategoria() {
 }
 
 function verificarBajaProducto() {
-    alert("baja producto");
-    var idProducto = Number($("#bajaProductoID").var());
+    console.log("baja producto");
+    var idProducto = Number($("#bajaProductoID").val());
     var bajaProductoError = $("#bajaProductoError");
     var bajaProductoResultado = $("#bajaProductoResultado");
     if (validarVacio(idProducto)) {

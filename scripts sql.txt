@@ -94,3 +94,22 @@ INNER JOIN
 	categoria
 ON
 productos.categoria = categoria.idC;
+
+
+
+
+SELECT  productos.idP,productos.marca,productos.descripcion,productos.origen,productos.precio,categoria.nombre
+FROM  productos
+INNER JOIN 
+	categoria
+ON
+productos.categoria = categoria.idC
+WHERE productos.idP=4;
+
+SELECT productos.* , categoria.nombre FROM productos 
+INNER JOIN categoria  ON productos.categoria = categoria.idC 
+ORDER BY productos.idP;
+
+
+
+

@@ -35,7 +35,7 @@
 		 					<h2>Dar Producto de Baja</h2>
 								
 <hr>
-			<form class="form-group " id="producForm">
+			<form class="form-group " id="producForm" action="procesoProductoConfirmarBaja.php" method="POST" >
 			<label  for="bajaProductoID" >ID</label>
 			
 			<input
@@ -49,7 +49,7 @@
 			<br >
 			
 			
-            <input type="button"  class="form-control" value="Buscar" id="bajaProductoBoton">
+            <input type="submit"  class="form-control" value="Buscar" id="bajaProductoBoton">
 			
             </form>
 
