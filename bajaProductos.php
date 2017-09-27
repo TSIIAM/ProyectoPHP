@@ -33,7 +33,34 @@
 							 
 		 					<div class="panel-body">
 		 					<h2>Dar Producto de Baja</h2>
-								<p>Remueva Productos aqui.</p>
+								
+<hr>
+			<form class="form-group " id="producForm">
+			<label  for="bajaProductoID" >ID</label>
+			
+			<input
+				 class="form-control  formInputProducto"
+				 id="bajaProductoID" 
+                 type="number" 
+                 name="bajaID"
+                 maxlength="5"
+                 title="Máximo 5 dígitos">
+
+			<br >
+			
+			
+            <input type="button"  class="form-control" value="Buscar" id="bajaProductoBoton">
+			
+            </form>
+
+            <div class="text-center">
+				<p class="panel panel-default error text-danger" id="bajaProductoError"></p>
+                <p class="panel panel-default resultado text-success"  id="bajaProductoResultado"></p>
+            </div>
+
+
+
+
 							</div>
 						</div>
 					</div>
@@ -61,7 +88,7 @@
 
 
 
-<!--Sripts de bootstrap  y jquery  -->
+<!--Scripts de bootstrap  y jquery  -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>

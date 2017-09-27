@@ -10,12 +10,13 @@ function main() {
 //funcion para realizar verificacion de los formularios
 function verify() {
     //verifica en que pagina se encuentra, dependiendo de la pagina, su respectiva verificacion
+    alert("test");
 
 
-    var altaProductoBtn = $("#altaProductoBoton");
-    altaProductoBtn.on("click", verificarAltaProducto);
-    var altaCatBtn = $("#altaCategoriaBoton");
-    altaCatBtn.on("click", verificarAltaCategoria);
+    $("#altaProductoBoton").on("click", verificarAltaProducto);
+    $("#altaCategoriaBoton").on("click", verificarAltaCategoria);
+    $("#bajaProductoBoton").on("click", verificarBajaProducto);
+
 }
 //funcion para verificar que los campos no esten vacios
 function validarVacio() {
@@ -25,7 +26,7 @@ function validarVacio() {
 
         console.log(arguments[i]);
         if (typeof arguments[i] == "string" && arguments[i].replace(/\s+/g, '').length != 0 ||
-            typeof arguments[i] === "number" && !isNaN(arguments[i]) && arguments[i] !== 0) {
+            typeof arguments[i] === "number" && !isNaN(arguments[i]) && arguments[i] > 0) {
             resultado = true;
 
         } else {
@@ -86,4 +87,20 @@ function verificarAltaCategoria() {
         altaCategoriaError.show().html("Error por favor llene los campos.");
         return false;
     }
+}
+
+function verificarBajaProducto() {
+    alert("baja producto");
+    var idProducto = Number($("#bajaProductoID").var());
+    var bajaProductoError = $("#bajaProductoError");
+    var bajaProductoResultado = $("#bajaProductoResultado");
+    if (validarVacio(idProducto)) {
+        bajaProductoError.hide()
+        bajaProductoResultado.show().html("ID " + idProducto);
+    } else {
+        bajaProductoResultado.hide()
+        bajaProductoError.show().html("Error por favor llene el campo.");
+        return false;
+    }
+
 }
