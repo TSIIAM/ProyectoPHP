@@ -125,7 +125,7 @@
             echo " <td>$marca</td>\n";                                 // marca
             echo " <td>$descripcion</td>\n";  
 			echo " <td>$origen</td>\n";                                 // origen
-            echo " <td>$reg[precio]</td>\n";					// precio
+            echo " <td>$ $reg[precio]</td>\n";					// precio
             echo " <td>$categoria</td>\n";                           // departamento
             echo "</tr>\n"; 
             // incrementar número de fila
