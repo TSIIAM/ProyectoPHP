@@ -3,7 +3,7 @@
     // conectar al servidor de BD
     include "conexion.php";
     // capturar ID del formulario
-    $id = $_POST["bajaID"];
+    $id = $_POST["modificarID"];
     // crear sentencia SQL para buscar ID
     $sql = "SELECT productos.idP,productos.marca,productos.descripcion,productos.origen,productos.precio,categoria.nombre";
     $sql .= " FROM productos INNER JOIN categoria ON productos.categoria = categoria.idC WHERE idP= $id";
@@ -27,6 +27,13 @@
     $origen  = utf8_encode($regProductos["origen"]); 
     $precio  =  $regProductos["precio"]; 
     $categoria  = utf8_encode($regProductos["nombre"]);
+
+   
+    
+ 
+
+
+
 
 ?>
 
@@ -67,55 +74,55 @@
 		 					<h2>Dar Producto de Baja</h2>
 								
 <hr>
-			<form class="form-group " id="producForm" action="procesoProductoBaja.php" method="POST" >
-			<label  for="bajaProductoID" >ID</label>
+			<form class="form-group " id="producForm" action="procesoProductoModificar.php" method="POST" >
+			<label  for="modificarProductoID" >ID</label>
 			<input
 				 class="form-control  formInputProducto"
-				 id="bajaProductoID" 
+				 id="modificarProductoID" 
                  type="number" 
-                 name="bajaID"
+                 name="modificarID"
                  maxlength="5"
                  title="Máximo 5 dígitos"
                  readonly="true"
                  <?php echo "value='$ID'" ?>
                  >
+            
                   
 
 			<br>
-            	<label  for="bajaProductoMarca" >Marca</label>
+            	<label  for="modificarProductoMarca" >Marca</label>
 			<input
 				 class="form-control  formInputProducto"
-				 id="bajaProductoMarca" 
+				 id="modificarProductoMarca" 
                  type="text" 
-                 name="bajaMarca"
+                 name="modificarMarca"
                  maxlength="50"
                  title="Marca del producto"
-                 readonly="true"
+                 
                  <?php echo "value='$marca'" ?> 
                  >
                  
 
 			<br>
-                 	<label  for="bajaProductoDescripcion" >Descripcion</label>
+                 	<label  for="modificarProductoDescripcion" >Descripcion</label>
 			<input
 				 class="form-control  formInputProducto"
-				 id="bajaProductoDescripcion" 
+				 id="modificarProductoDescripcion" 
                  type="text" 
-                 name="bajaDescripcion"
+                 name="modificarDescripcion"
                  maxlength="50"
                  title="Descripcion del producto"
-                 readonly="true"
+                
                  <?php echo "value='$descripcion'" ?> 
                  >
-                 
+         <br>        
 
-			<br>
-                      	<label  for="bajaProductoOrigen" >Origen</label>
+		<label  for="modificarProductoOrigen" >Origen</label>
 			<input
 				 class="form-control  formInputProducto"
-				 id="bajaProductoOrigen" 
+				 id="modificarProductoOrigen" 
                  type="text" 
-                 name="bajaOrigen"
+                 name="modificarOrigen"
                  maxlength="50"
                  title="Origen del producto"
                  readonly="true"
@@ -124,26 +131,29 @@
                  
 
 			<br>
-                          	<label  for="bajaProductoPrecio" >Precio</label>
+                 
+
+			<br>
+                          	<label  for="modificarProductoPrecio" >Precio</label>
 			<input
 				 class="form-control  formInputProducto"
-				 id="bajaProductoPrecio" 
+				 id="modificarProductoPrecio" 
                  type="number" 
-                 name="bajaPrecio"
+                 name="modificarPrecio"
                  maxlength="50"
                  title="Precio del producto"
-                 readonly="true"
+                 
                  <?php echo "value='$precio'" ?> 
                  >
                  
 
 			<br>
-                                 	<label  for="bajaProductoCategoria" >Categoria</label>
+                                 	<label  for="modificarProductoCategoria" >Categoria</label>
 			<input
 				 class="form-control  formInputProducto"
-				 id="bajaProductoCategoria" 
+				 id="modificarProductoCategoria" 
                  type="text" 
-                 name="bajaCategoria"
+                 name="modificarCategoria"
                  maxlength="50"
                  title="Categoria del producto"
                  readonly="true"
@@ -156,14 +166,14 @@
              
 			
 			
-            <input type="submit"  class="form-control" value="Eliminar" id="bajaProductoBoton">
-            <input type="button"  class="form-control" value="Cancelar" onclick="SetPage('bajaProductos.php');"/> 
+            <input type="submit"  class="form-control" value="Modificar" id="modificarProductoConfirmBoton">
+            <input type="button"  class="form-control" value="Cancelar" onclick="SetPage('modificarProductos.php');"/> 
 			
             </form>
 
             <div class="text-center">
-				<p class="panel panel-default error text-danger" id="bajaProductoError"></p>
-                <p class="panel panel-default resultado text-success"  id="bajaProductoResultado"></p>
+				<p class="panel panel-default error text-danger" id="modificarProductoError"></p>
+                <p class="panel panel-default resultado text-success"  id="modificarProductoResultado"></p>
             </div>
 
 

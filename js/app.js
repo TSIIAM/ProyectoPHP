@@ -16,6 +16,9 @@ function verify() {
     $("#altaProductoBoton").on("click", verificarAltaProducto);
     $("#altaCategoriaBoton").on("click", verificarAltaCategoria);
     $("#bajaProductoBoton").on("click", verificarBajaProducto);
+    $("#modificarproductoBoton").on("click", verficiarModificarProducto);
+    $("#modificarProductoConfirmBoton").on("click", verficiarModificarConfirmProducto);
+
 
 }
 //funcion para verificar que los campos no esten vacios
@@ -51,7 +54,6 @@ function verificarAltaProducto() {
     var origenProducto = $("#altaProductoInputOrigen").val();
     var precioProducto = Number($("#altaProductoInputPrecio").val());
     var categoriaProducto = $("#altaProductoInputCategoria").val();
-
 
     //resultados del formulario
     var altaProductoError = $("#altaProductoError");
@@ -105,6 +107,46 @@ function verificarBajaProducto() {
     } else {
         bajaProductoResultado.hide()
         bajaProductoError.show().html("Error por favor llene el campo.");
+        return false;
+    }
+
+}
+
+
+function verficiarModificarProducto() {
+    console.log("Modificar producto");
+    var idProducto = Number($("#modificarProductoID").val());
+    var modificarProductoError = $("#modificarProductoError");
+    var modificarProductoResultado = $("#modificarProductoResultado");
+    if (validarVacio(idProducto)) {
+        modificarProductoError.hide()
+        modificarProductoResultado.show().html("ID " + idProducto);
+    } else {
+        modificarProductoResultado.hide()
+        modificarProductoError.show().html("Error por favor llene el campo.");
+        return false;
+    }
+
+}
+
+function verficiarModificarConfirmProducto() {
+    console.log("Modificar producto");
+    var idProducto = Number($("#modificarProductoID").val());
+    var marcaProducto = $("#modificarProductoMarca").val();
+    var descripcionProducto = $("#modificarProductoDescripcion").val();
+    var origenProducto = $("#modificarProductoOrigen").val();
+    var precioProducto = Number($("#modificarProductoPrecio").val());
+    var categoriaProducto = $("#modificarProductoCategoria").val();
+
+
+    var modificarProductoError = $("#modificarProductoError");
+    var modificarProductoResultado = $("#modificarProductoResultado");
+    if (validarVacio(idProducto, marcaProducto, marcaProducto, descripcionProducto, origenProducto, precioProducto, categoriaProducto)) {
+        modificarProductoError.hide()
+        modificarProductoResultado.show().html("ID " + idProducto + "Marca " + marcaProducto + "Descripcion " + descripcionProducto);
+    } else {
+        modificarProductoResultado.hide()
+        modificarProductoError.show().html("Error por favor llene el campo.");
         return false;
     }
 

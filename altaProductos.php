@@ -44,7 +44,6 @@
 			<br >
 			<label  for="altaProductoInputOrigen" >Origen</label>
 			<select class="form-control formInputProducto" id="altaProductoInputOrigen" name="productoOrigen">
-				<option value="empty">Seleccione Origen</option>
 				<option value="usa">Usa</option>
 				<option value="alemania">Alemania</option>
 				<option value="china">China</option>

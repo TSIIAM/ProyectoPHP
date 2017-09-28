@@ -35,7 +35,7 @@
 							 
 		 					<div class="panel-body">
 		 					<h2>Modificar Categorias</h2>
-								<p>Modifigue categorias aqui.</p>
+ 
 										<hr>
 			<form class="form-group" id="categForm" action="procesoCategoriaModificar.php" method="POST">
 			<label  for="modificarCategoriaID" >Categoria</label>

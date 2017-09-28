@@ -33,7 +33,29 @@
 							 
 		 					<div class="panel-body">
 		 					<h2>Modificar Producto</h2>
-								<p>Modifique Productos aqui.</p>
+								<hr>
+			<form class="form-group " id="producForm" action="procesoProductoConfirmarModificar.php" method="POST" >
+			<label  for="modificarProductoID" >ID</label>
+			
+			<input
+				 class="form-control  formInputProducto"
+				 id="modificarProductoID" 
+                 type="number" 
+                 name="modificarID"
+                 maxlength="5"
+                 title="Máximo 5 dígitos">
+
+			<br >
+			
+			
+            <input type="submit"  class="form-control" value="Buscar" id="modificarProductoBoton">
+			
+            </form>
+
+            <div class="text-center">
+				<p class="panel panel-default error text-danger" id="modificarProductoError"></p>
+                <p class="panel panel-default resultado text-success"  id="modificarProductoResultado"></p>
+            </div>
 							</div>
 						</div>
 					</div>

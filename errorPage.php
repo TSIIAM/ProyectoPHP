@@ -43,6 +43,8 @@
                                         // mostrar mensaje de error
                                         echo "<p class='text-alert'>A T E N C I O N ! ! ! ...</p>";
                                         echo "<p class='text-alert'>$mensaje</p>";
+                                       echo '<input type="button" class="form-control"  value="Volver" onClick="history.go(-1);">';
+                                         
                                     ?>
 
 
