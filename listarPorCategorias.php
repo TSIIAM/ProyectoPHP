@@ -34,8 +34,21 @@
 							<h1 class="list-group-item discret list-group-item-heading   text-center">Consultar Categorias</h1>
 							 
 		 					<div class="panel-body">
-		 					<h2>Consulte Categoria</h2>
-								<p>Consultar por categoria. </p>
+		 					<h2>Consulte por Categoria</h2>
+	
+ 
+										<hr>
+			<form class="form-group" id="categForm" action="listarProductos.php" method="GET">
+			<label  for="buscarCategoria" >Categoria</label>
+			<select class="form-control" id="buscarCategoria" name="categoriaID">
+				 
+				<?php
+				 include "loadCategorias.php";
+				 ?>
+			</select>
+			<br >
+            <input type="submit"  class="form-control" value="Buscar">
+            </form>
 							</div>
 						</div>
 					</div>

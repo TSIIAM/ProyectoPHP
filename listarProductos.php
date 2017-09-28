@@ -35,7 +35,106 @@
 							 
 		 					<div class="panel-body">
 		 					<h2>Consulte Producto</h2>
-								<p>Consultar por Producto.</p>
+								
+								<table class="table table-responsive table-striped table-bordered table-hover" id="lst">
+       <?php
+        // conectar al servidor de BD
+        include "conexion.php";
+        // determinar criterio de ordenación
+        if (isset($_GET["ORD"])) {
+            // capturar orden
+            $orden = $_GET["ORD"];    
+        } else {
+            $orden = "idP";
+        } // endif
+        // capturar filtro
+        $categor = $_GET["categoriaID"];
+		echo("<script>console.log('PHP: ".$categor."');</script>");
+		
+        // determinar filtro        
+        if ($categor == "0" || $categor == "undefined") {
+            $filtro =''; 
+        } else {
+            $filtro = "WHERE idC ='$categor'";
+        } // endif
+        // crear sentencia SQL
+        $sql  = "SELECT   productos.idP,productos.marca,productos.descripcion,productos.origen,productos.precio,categoria.nombre ";
+        $sql .= "  FROM productos   ";
+        $sql .= "  JOIN categoria   ";
+        $sql .= "    ON productos.categoria = categoria.idC ";
+		if (isset($filtro)) {
+            // agregamos filtro 
+            $sql .= " $filtro "; 
+        }
+		$sql .= "ORDER BY $orden";
+        // depurar
+        // die($sql);
+        // ejecutar sentencia SQL
+        $result = mysql_query($sql,$conex);
+        // controlar existencia de datos
+        if (mysql_num_rows($result)==0) {
+            // mostrar error
+            header("Location: errorPage.php?MSG=No exiten datos para mostrar");
+        } // endif
+
+        // crear cabecera de tabla de datos
+        echo "
+			<thead class='thead-inverse'>
+               <tr>
+                 <th>
+                  <a href='listarProductos.php?categoriaID=$categor&ORD=idP'>ID</a>
+                 </th>       
+                 <th>
+                  <a href='listarProductos.php?categoriaID=$categor&ORD=marca'>NOMBRE</a>
+                 </th>
+                 <th>
+                  <a href='listarProductos.php?categoriaID=$categor&ORD=descripcion'>DESCRIPCION</a>
+                 </th>
+                 <th>
+                  <a href='listarProductos.php?categoriaID=$categor&ORD=origen'>ORIGEN</a>
+                 </th>
+                 <th>
+                  <a href='listarProductos.php?categoriaID=$categor&ORD=precio'>PRECIO</a>
+                 </th>
+                 <th>
+                  <a href='listarProductos.php?categoriaID=$categor&ORD=categoria,idP'>CATEGORIA</a>
+                 </th>                           
+               </tr> 
+			</thead>       
+        ";
+        // die($sql);        
+        $fila = 1;  // contador de filas
+        while ($reg=mysql_fetch_array($result)) {
+            // convertir caracteres
+            $marca      = utf8_encode($reg["marca"]);
+            $descripcion   = utf8_encode($reg["descripcion"]);
+			$origen   = utf8_encode($reg["origen"]);
+
+            $categoria = utf8_encode($reg["nombre"]);     
+
+            // determinar fila par/impar
+            $resto = $fila % 2;
+            if ($resto==0) {
+                // crear fila de datos PAR
+                echo "<tr class='filaPAR'>\n";                
+            } else {
+                // crear fila de datos IMPAR
+                echo "<tr class='filaIMP'>\n";                
+            } // endif
+            echo " <td >$reg[idP]</td>\n"; // id            
+            echo " <td>$marca</td>\n";                                 // marca
+            echo " <td>$descripcion</td>\n";  
+			echo " <td>$origen</td>\n";                                 // origen
+            echo " <td>$reg[precio]</td>\n";					// precio
+            echo " <td>$categoria</td>\n";                           // departamento
+            echo "</tr>\n"; 
+            // incrementar número de fila
+            $fila++;                                               
+        } // end while (siguiente registro)
+        // cerrar conexión
+        mysql_close($conex);
+       ?>       
+      </table>
 							</div>
 						</div>
 					</div>

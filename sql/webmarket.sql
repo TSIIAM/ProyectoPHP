@@ -7,7 +7,7 @@
 # Server OS:                    Win32
 # Target compatibility:         ANSI SQL
 # HeidiSQL version:             4.0
-# Date/time:                    2017-09-27 18:46:13
+# Date/time:                    2017-09-27 22:22:15
 # --------------------------------------------------------
 
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ANSI,NO_BACKSLASH_ESCAPES';*/
@@ -31,7 +31,7 @@ CREATE TABLE /*!32312 IF NOT EXISTS*/ "categoria" (
   "idC" int(11) NOT NULL AUTO_INCREMENT,
   "nombre" varchar(60) NOT NULL,
   PRIMARY KEY ("idC")
-) AUTO_INCREMENT=10;
+) AUTO_INCREMENT=11;
 
 
 
@@ -56,9 +56,11 @@ REPLACE INTO "categoria" ("idC", "nombre") VALUES
 REPLACE INTO "categoria" ("idC", "nombre") VALUES
 	(7,'Mochila');
 REPLACE INTO "categoria" ("idC", "nombre") VALUES
-	(8,'Cinturon');
+	(8,'Cinto');
 REPLACE INTO "categoria" ("idC", "nombre") VALUES
 	(9,'Bateria');
+REPLACE INTO "categoria" ("idC", "nombre") VALUES
+	(10,'Zoom');
 /*!40000 ALTER TABLE "categoria" ENABLE KEYS;*/
 UNLOCK TABLES;
 
@@ -126,7 +128,9 @@ REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "ca
 REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
 	(19,'Karcher','Bateria doble.','alemania',165,9);
 REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
-	(20,'Kioko','Mochila pequeña','empty',65,7);
+	(20,'Kiokos','Mochila mediana','china',70,7);
+REPLACE INTO "productos" ("idP", "marca", "descripcion", "origen", "precio", "categoria") VALUES
+	(21,'Xixion','Zoom economico','china',25,10);
 /*!40000 ALTER TABLE "productos" ENABLE KEYS;*/
 UNLOCK TABLES;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE;*/
